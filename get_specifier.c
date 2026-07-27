@@ -20,6 +20,9 @@ int (*get_specifier(const char *s))(va_list)
 
 	int i = 0;
 
+	if (spec[i].valid == NULL)
+		return (0);
+
 	while (spec[i].valid != NULL && *(spec[i].valid) != *s)
 		i++;
 

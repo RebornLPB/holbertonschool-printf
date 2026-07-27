@@ -21,12 +21,8 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] == '\0' ||
-			    (format[i + 1] != 'c' && format[i + 1] != 's'
-					&& format[i + 1] != 'i' && format[i + 1] != '%'))
-				return (-1);
 			tmp = get_specifier(&format[i + 1])(args);
-			if (tmp != -1)
+			if (tmp != 0)
 			{
 				count += tmp;
 				i += 2;
