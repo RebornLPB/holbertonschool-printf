@@ -14,7 +14,7 @@ int _printf(const char *format, ...)
 	int tmp;
 
 	if (!format)
-		return (0);
+		return (-1);
 
 	va_start(args, format);
 	while (format[i] != '\0')
@@ -22,13 +22,13 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			tmp = get_specifier(&format[i + 1])(args);
-			if (!tmp)
+			if (tmp != -1)
 			{
 				count += tmp;
 				i += 2;
 				continue;
 			}
-			count += write(1, &format[i], 1);
+			count += write(1, &format[i], 2);
 			i++;
 		}
 		else
