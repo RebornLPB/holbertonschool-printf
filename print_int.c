@@ -10,7 +10,7 @@ int print_integer(va_list args)
 {
 	int i = 0, len = 0;
 	char str[12];
-	int j;
+	unsigned int j;
 
 	int integer = va_arg(args, int);
 
