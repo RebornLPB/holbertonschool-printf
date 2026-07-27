@@ -21,7 +21,9 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (get_specifier(&format[i + 1]) != NULL || format[i + 1] != '\0')
+			if (format[i + 1] == '\0')
+				return (-1);
+			if (get_specifier(&format[i + 1]) != NULL)
 			{
 				tmp = get_specifier(&format[i + 1])(args);
 				if (tmp != -1)
