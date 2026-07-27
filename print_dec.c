@@ -21,7 +21,6 @@ int print_decimal(va_list args)
 
 	if (integer < 0)
 	{
-		write(1, "-", 1);
 		len++;
 		j = -integer;
 	}
