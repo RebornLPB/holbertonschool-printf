@@ -14,13 +14,16 @@ int _printf(const char *format, ...)
 	int tmp;
 
 	if (!format)
-		return (1);
+		return (0);
 
 	va_start(args, format);
 	while (format[i] != '\0')
 	{
 		if (format[i] == '%')
 		{
+			if (format[i + 1] == '\0' ||
+			    (format[i + 1] != 'c' && format[i + 1] != 's' && format[i + 1] != 'i'))
+				return (-1);
 			tmp = get_specifier(&format[i + 1])(args);
 			if (tmp != -1)
 			{
