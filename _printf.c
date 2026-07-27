@@ -24,7 +24,7 @@ int _printf(const char *format, ...)
 			tmp = get_specifier(&format[i + 1])(args);
 			if (tmp != -1)
 			{
-				count += tmp;
+				count += tmp - 1;
 				i += 2;
 				continue;
 			}
