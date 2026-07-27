@@ -10,7 +10,7 @@ int print_decimal(va_list args)
 {
 	int i = 0, len = 0;
 	char str[12];
-	int j;
+	unsigned int j;
 
 	int integer = va_arg(args, int);
 
@@ -21,6 +21,7 @@ int print_decimal(va_list args)
 
 	if (integer < 0)
 	{
+		write(1, "-", 1);
 		len++;
 		j = -integer;
 	}
