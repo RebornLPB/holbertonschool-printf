@@ -21,14 +21,17 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			tmp = get_specifier(&format[i + 1])(args);
-			if (tmp != NULL || tmp != -1)
+			if (get_specifier(&format[i + 1]) != NULL)
 			{
-				count += tmp;
-				i += 2;
-				continue;
+				tmp = get_specifier(&format[i + 1])(args);
+				if (tmp != -1)
+				{
+					count += tmp;
+					i += 2;
+					continue;
+				}
 			}
-			count += write(1, &format[i], 2);
+			count += write(1, &format[i], 1);
 			i++;
 		}
 		else
