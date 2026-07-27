@@ -22,7 +22,7 @@ int _printf(const char *format, ...)
 		if (format[i] == '%')
 		{
 			tmp = get_specifier(&format[i + 1])(args);
-			if (tmp != -1)
+			if (tmp != NULL || tmp != -1)
 			{
 				count += tmp;
 				i += 2;
