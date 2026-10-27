@@ -29,9 +29,9 @@ All prototypes, structures, and function declarations are centralized in the `ma
 | `get_specifier.c` | Selection engine using function pointers to map format flags to their processing routines. |
 | `print_char.c` | Handles `%c` (single character) conversion specifier. |
 | `print_string.c` | Handles `%s` (string) conversion specifier, including `(null)` handling. |
-| `print_percent.c` | Handles `%%` (percent literal) printing. |
-| `print_int.c` | Handles `%d` and `%i` (signed decimal integers) conversion specifiers. |
-| `man_3_printf` | Custom manual page for the `_printf` function. |
+| `print_pourcent.c` | Handles `%%` (percent literal) printing (`print_percent`). |
+| `print_int.c` | Handles `%i` (signed decimal integer) conversion specifier (`print_integer`). |
+| `print_dec.c` | Handles `%d` (signed decimal integer) conversion specifier (`print_decimal`). |
 
 ---
 
@@ -53,3 +53,4 @@ To compile the `_printf` engine with a main test file (e.g., `main.c`), run:
 
 ```bash
 gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o printf_test
+```
